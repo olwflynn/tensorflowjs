@@ -2,7 +2,7 @@
 
 > A Vue.js project
 
-We took as our corpus of words (i.e. the possible outputs of the thesaurus) a relatively small number of art reviews found at various reputable sources. Then we gave the model a “target” word; this is the word we want see context for. Each word can be mapped to a vector by the GLoVE algorithm and then we can use some maths to find the 5 most “similar” or “closest” words in the corpus to the target word.
+We are using the GLoVE vector representation of words to convert our database of words into vectors. Then we find how “similar” two words are by finding the distance of the vectors, in our case we have used the cosine similarity. This calculates the angle between the two vectors. We can think of two words being very similar if their vector representation have similar orientation which translates to a small angle. In the limit, when the vectors have exactly the same orientation, the angle will be zero and cosine of zero is 1 (in our tool we have scaled this up by a factor of 100). When the angle is 90 degrees, the vectors are said to be “orthogonal” and most “dissimilar” or uncorrelated and cosine similarity is 0. Finally when the angle is 180 degrees the vectors have exactly the opposite orientation and the cosine similarity is -1.
 
 ## Build Setup
 
